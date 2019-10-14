@@ -1,0 +1,39 @@
+---
+# These tasks are responsible for copying the latest dev/production code from
+# the version control system.
+
+- name: apt upgrade and update
+  apt:
+    force: yes
+    update_cache: yes
+    upgrade: yes
+      
+- name: install apache
+  apt: 
+    force: yes
+    name: apache2 
+    update_cache: yes 
+    state: latest
+    
+- name: install php
+  apt: 
+    force: yes
+    name: "{{ packages }}"
+    update_cache: yes 
+    state: latest
+  vars: 
+    packages:
+    - php
+    - php-dev
+    - libapache2-mod-php
+    - libmcrypt-dev 
+    - php-pear 
+    - php-mysql
+  notify:
+  - restart apache2
+   
+- name: install git
+  apt: 
+    force: yes
+    name: git 
+    update_cache: yes

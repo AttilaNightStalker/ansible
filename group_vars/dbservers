@@ -1,0 +1,2 @@
+---
+repo_dst: /home/{{ ansible_user_id }}/phpMySQLapp

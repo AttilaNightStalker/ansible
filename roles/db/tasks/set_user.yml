@@ -1,0 +1,8 @@
+---
+# This playbook will set up mysql user
+
+- name: set up user
+  command:
+    mysql --execute="GRANT ALL PRIVILEGES ON *.* TO '{{ dbusr }}'@'localhost' IDENTIFIED BY '{{ password }}'; FLUSH PRIVILEGES;"
+  notify:
+    restart mysql

@@ -1,0 +1,7 @@
+---
+# main file
+
+- include: apt_installation.yml
+- include: copy_code.yml
+- include: import_databases.yml
+- include: set_user.yml

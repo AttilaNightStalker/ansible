@@ -1,0 +1,5 @@
+[webservers]
+localhost ansible_connection=local
+
+[dbservers]
+192.168.2.168

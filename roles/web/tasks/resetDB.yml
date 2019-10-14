@@ -1,0 +1,39 @@
+---
+# import files and reset db
+
+- name: reset host ip for book store
+  replace:
+    path: "{{ repo_dst }}/books/includes/bookDatabase.php"
+    regexp: "127.0.0.1"
+    replace: "{{ db_ip }}"
+
+- name: reset host ip for movie
+  replace:
+    path: "{{ repo_dst }}/movies/includes/movieDatabase.php"
+    regexp: "127.0.0.1"
+    replace: "{{ db_ip }}"
+
+- name: reset db user for book store
+  replace:
+    path: "{{ repo_dst }}/books/includes/bookDatabase.php"
+    regexp: "root"
+    replace: "{{ dbusr }}"
+    
+- name: reset db user for movie
+  replace:
+    path: "{{ repo_dst }}/movies/includes/movieDatabase.php"
+    regexp: "root"
+    replace: "{{ dbusr }}"   
+
+
+- name: reset db user password for book store
+  replace:
+    path: "{{ repo_dst }}/books/includes/bookDatabase.php"
+    regexp: "admin"
+    replace: "{{ password }}"
+    
+- name: reset db user password for movie 
+  replace:
+    path: "{{ repo_dst }}/movies/includes/movieDatabase.php"
+    regexp: "admin"
+    replace: "{{ password }}"

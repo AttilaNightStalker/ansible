@@ -1,0 +1,12 @@
+---
+# This playbook will copy code from git respository
+
+- name: create new directory
+  file:
+    path: "{{ repo_dst }}"
+    state: directory
+      
+- name: Git repo
+  git:
+    repo: "{{ repo_src }}"
+    dest: "{{ repo_dst }}"

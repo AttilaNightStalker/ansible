@@ -1,0 +1,14 @@
+---
+# This playbook will import database from sql file
+
+- name: import bookstore
+  mysql_db:
+    name: bookstore
+    state: import
+    target: "{{ repo_dst }}/mySqlDB/bookDB.sql"
+  
+- name: import movies
+  mysql_db:
+    name: moviedb
+    state: import
+    target: "{{ repo_dst }}/mySqlDB/movieDB.sql" 

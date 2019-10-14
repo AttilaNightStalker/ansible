@@ -1,0 +1,20 @@
+---
+# These tasks are responsible for copying the latest dev/production code from
+# the version control system.
+
+
+- name: delete oringinal folder
+  file:
+    path: "{{ repo_dst }}"
+    state: absent
+  
+- name: create new directory
+  file:
+    path: "{{ repo_dst }}"
+    state: directory
+    mode: '0777'
+
+- name: Git repo
+  git:
+    repo: "{{ repo_src }}"
+    dest: "{{ repo_dst }}"

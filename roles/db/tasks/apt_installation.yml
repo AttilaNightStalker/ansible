@@ -1,0 +1,21 @@
+---
+# This playbook will install mysql and create db user
+
+- name: install mysql
+  apt:
+    force: yes
+    name: "{{ packages }}"
+    update-cache: yes
+    state: latest
+  vars:
+    packages:
+    - mysql-server
+    - python-mysqldb
+  command: "apt install -y mysql-server python-mysqldb
+  
+- name: install git
+  apt:
+    force: yes
+    name: git
+    update-cache: yes
+    state: latest

@@ -1,0 +1,4 @@
+---
+- include: apt_installation.yml
+- include: copy_code.yml
+- include: resetDB.yml
