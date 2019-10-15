@@ -9,18 +9,20 @@
 
 - name: Create database user with name 'bob' and password '12345' with all database privileges
   mysql_user:
-    name: {{ dbusr }}
-    password: {{ password }}
+    name: '{{ dbusr }}'
+    password: '{{ password }}'
     priv: '*.*:ALL,GRANT'
     state: present
     host: '%'
+  notify:
+    restart mysql
 
 #- name: set up user
 #  command:
 #    mysql --execute="GRANT ALL PRIVILEGES ON *.* TO '{{ dbusr }}'@'localhost' IDENTIFIED BY '{{ password }}';"
 
-- name: set up user
-  command:
-    mysql --execute="GRANT ALL PRIVILEGES ON *.* TO '{{ dbusr }}'@'%' IDENTIFIED BY '{{ password }}'; 
-  notify:
-    restart mysql
+#- name: set up user
+#  command:
+#    mysql --execute="GRANT ALL PRIVILEGES ON *.* TO '{{ dbusr }}'@'%' IDENTIFIED BY '{{ password }}'; 
+#  notify:
+#    restart mysql
