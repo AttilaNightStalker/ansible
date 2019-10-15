@@ -7,7 +7,7 @@
     regexp: "127.0.0.1"
     replace: "0.0.0.0"
 
-- name: Create database user with name 'bob' and password '12345' with all database privileges
+- name: Create database user that allow remote connection
   mysql_user:
     name: '{{ dbusr }}'
     password: '{{ password }}'
